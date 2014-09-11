@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta name="viewport" content="minimal-ui,width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>DEMO</title>
+    <script src="../dep/iScroll-v4.2.5.js"></script>
+    <script src="../dep/template.js"></script>
+    <script src="../dep/sea.js"></script>
+    <script src="../dep/zepto.js"></script>
+    <script src="../dep/spine.js"></script>
+    <script src="../dep/route.js"></script>
+    <script src="../dep/manager.js"></script>
+</head>
+
+<body>
+
+    <div id="main-container" class="main-container">
+        <div class="page-container" id='home'></div>
+    </div>
+
+    <script>
+    seajs.config({
+        base: '../',
+        alias: {
+        }
+    })
+    //seajs.use('mockAjax', function() {});
+
+    seajs.use("page/index");
+    </script>
+
+</body>
+
+</html>
