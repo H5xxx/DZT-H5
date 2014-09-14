@@ -17,6 +17,7 @@
     "spine": "~1.3.1",
     "artTemplate": "https://github.com/aui/artTemplate.git#~3.0.1",
     "Mock.js": "https://github.com/nuysoft/Mock.git",
-    "seajs": "~2.3.0"
+    "seajs": "~2.3.0",
+    "iscroll": "~5.1.2"
   }
 }

@@ -2,9 +2,7 @@ define(function(require, exports) {
 
     var Page = Spine.Stack.sub({
 
-        controllers: {
-            'home': require('../controller/car-home')
-        },
+        controllers: {},
 
         routes: {
             '/': 'home'
@@ -12,18 +10,17 @@ define(function(require, exports) {
 
         'default': 'home',
 
-        squenceNum: 0,
+        num: 0,
 
-        add: function(controller){
+        add: function(scene){
             var page = this;
 
-            controller.page = page;
-            controller.squenceId = page.squenceNum = page.squenceNum + 1;
+            scene.page = page;
+            scene.id = page.num = page.num + 1;
 
             return Page.__super__.add.apply(page, arguments);
         },
 
-        // 页面初始化
         init: function(){
             var page = this;
 
@@ -31,13 +28,11 @@ define(function(require, exports) {
             this.el.delegate('.j-nav', 'click', function(e){
                 page.navigate($(e.currentTarget).attr('data-nav'));
             });
+
+            Spine.Route.setup();
         }
     });
 
-    var page = new Page({
-        el: $('#main-container')
-    });
-
-    Spine.Route.setup();
+    return Page;
 
 });

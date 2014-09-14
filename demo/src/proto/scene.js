@@ -3,8 +3,8 @@
  */
 
 define(function(require, exports) {
-    var util = require('../component/util');
-    var Transitions = require('../component/transitions');
+    var util = require('../util');
+    var Transitions = require('../util/transitions');
     var Popup = require('../widgets/Popup');
     var Scene = Spine.Controller.sub({
         // 该controller要渲染&控制的区域
@@ -27,7 +27,7 @@ define(function(require, exports) {
         // 渲染内容
         render: function(params) {
 
-            var html = template(this.template, params);
+            var html = require('template')(this.template, params);
 
             this.el.html(html);
         },
@@ -57,9 +57,9 @@ define(function(require, exports) {
         // 视图正式进入当前controller
         enter: function(){
             var prev = this.page.curr,
-                prevId = prev  ? prev.squenceId : -1,
-                currId = this.squenceId,
-                direction = currId >= prevId ? 'right' : 'left';
+                prevId = prev  ? prev.id : -1,
+                currId = this.id,
+                direction = currId >= prevId ? 'forward' : 'backward';
 
             if(prev){
                 prev.leave();

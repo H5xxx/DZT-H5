@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta name="viewport" content="minimal-ui,width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>DEMO</title>
+    <script src="./dep/sea.js"></script>
+</head>
+
+<body>
+
+    <div id="main-container" class="main-container">
+        <div class="page-container" id='home'></div>
+    </div>
+
+    <script>
+
+    seajs.config({
+
+        base: './',
+
+        alias: {
+            'template': 'dep/artTemplate/dist/template',
+            'iscroll': 'dep/iscroll/build/iscroll',
+            'mock': 'dep/Mock.js/dist/mock-min',
+            'spine': 'dep/spine/lib/spine',
+            'spine-route': 'dep/spine/lib/route',
+            'spine-manager': 'dep/spine/lib/manager',
+            'zepto': 'dep/zepto/zepto.min'
+        },
+
+        preload: [
+            'zepto',
+            'spine', 'spine-route', 'spine-manager'
+        ]
+
+    })
+
+    seajs.use("src/page/index");
+
+    </script>
+
+</body>
+
+</html>
