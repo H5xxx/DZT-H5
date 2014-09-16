@@ -5,7 +5,13 @@
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <meta name="viewport" content="minimal-ui,width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
     <title>DEMO</title>
-    <script src="./dep/sea.js"></script>
+    <script src="./dep/seajs/dist/sea.js"></script>
+
+    <script id="tpl-home" type="text/html">
+        {{each words as word i}}
+        <p>{{i}}. {{word}}</p>
+        {{/each}}
+    </script>
 </head>
 
 <body>

@@ -8,8 +8,6 @@ define(function(require, exports) {
             '/': 'home'
         },
 
-        'default': 'home',
-
         num: 0,
 
         add: function(scene){

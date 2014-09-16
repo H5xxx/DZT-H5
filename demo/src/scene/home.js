@@ -2,7 +2,7 @@
  * Scene - Home
  */
 define(function(require, exports) {
-    var util = require('../util');
+    var util = require('../util/index');
 
     var Word = require('../model/word');
 
