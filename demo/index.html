@@ -7,7 +7,10 @@
     <title>DEMO</title>
     <link rel="stylesheet" type="text/css" href="./asset/css/main.css">
     <script src="./dep/seajs/dist/sea.js"></script>
-    <script src="./dep/seajs-preload/dist/seajs-preload.js"></script>
+    <script src="./dep/zepto/zepto.min.js"></script>
+    <script src="./dep/spine/lib/spine.js"></script>
+    <script src="./dep/spine/lib/route.js"></script>
+    <script src="./dep/spine/lib/manager.js"></script>
 
     <script id="tpl-home" type="text/html">
         <h1>
@@ -53,17 +56,8 @@
         alias: {
             'template': 'dep/artTemplate/dist/template',
             'iscroll': 'dep/iscroll/build/iscroll',
-            'mock': 'dep/Mock.js/dist/mock-min',
-            'spine': 'dep/spine/lib/spine',
-            'spine-route': 'dep/spine/lib/route',
-            'spine-manager': 'dep/spine/lib/manager',
-            'zepto': 'dep/zepto/zepto.min'
-        },
-
-        preload: [
-            'zepto',
-            'spine', 'spine-route', 'spine-manager'
-        ]
+            'mock': 'dep/Mock.js/dist/mock-min'
+        }
 
     })
 
