@@ -1,10 +1,11 @@
 /*
  * Scene - Home
  */
-define(function(require, exports) {
-    var util = require('../util/index');
 
-    var Word = require('../model/word');
+define(function(require, exports) {
+    var util = require('../util');
+
+    var Framework = require('../model/framework');
 
     var Home = require('../proto/scene').sub({
 
@@ -17,11 +18,15 @@ define(function(require, exports) {
         getData: function(params, callback) {
 
             util.finish([
-                Word.fetch(params)
-            ], function(words){
+
+                Framework.fetch(params).bind(Framework)
+
+            ], function(framework){
+
                 callback(null, {
-                    words: words
+                    framework: framework
                 });
+
             });
 
         }

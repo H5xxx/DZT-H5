@@ -6,29 +6,41 @@ define(function(require, exports) {
     Model.extend({
         url: '',
 
+        // fetch data with its url & given params
         fetch: util.currilize(function(params, callback){
+            var Model = this;
+
             var fetched = Model.fetched = Model.fetched || {},
                 url = util.format(Model.url, params);
 
-            // with cache
+            // cached
             if(fetched[url]){
-                cb(null, fetched[url]);
+                callback && callback(null, fetched[url]);
 
-            // without cache
+            // not cached
             }else{
-                $.getJSON(url, function(list){
+                $.getJSON(url, function(data){
 
-                    list.forEach(function(item){
-                        Model.create(item);
-                    });
+                    // save data as model
+                    Model.save(data);
 
-                    // cache result
-                    fetched[url] = list;
+                    // cache data
+                    fetched[url] = data;
 
-                    cb(null, list);
+
+                    callback && callback(null, data);
                 });
             }
-        })
+        }),
+
+        // save data as model
+        save: function(list){
+            var Model = this;
+
+            list.forEach(function(item){
+                Model.create(item);
+            });
+        }
 
     });
 

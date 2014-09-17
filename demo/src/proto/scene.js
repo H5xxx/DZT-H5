@@ -4,8 +4,8 @@
 
 define(function(require, exports) {
     var util = require('../util');
-    var Transitions = require('../util/transitions');
-    var Popup = require('../widgets/Popup');
+    var transition = require('../transition');
+    //var Popup = require('../widgets/Popup');
     var Scene = Spine.Controller.sub({
         // 该controller要渲染&控制的区域
         el: $(),
@@ -62,10 +62,10 @@ define(function(require, exports) {
                 direction = currId >= prevId ? 'forward' : 'backward';
 
             if(prev){
-                prev.leave();
+                prev.leave(direction);
             }
 
-            this.movein(direction);
+            this.animate.in(this.el, direction);
             util.title(this.title);
 
             this.page.curr = this;
@@ -74,19 +74,22 @@ define(function(require, exports) {
         // 离开到其对应的url时执行
         deactivate: function() {
             if(this === this.page.curr){
-                Popup.openLoading();
+                //Popup.openLoading();
             }
         },
 
         // 清理当前controller的内容并移出视图
-        leave: function(){
-            Popup.close();
-            this.moveout();
+        leave: function(direction){
+            //Popup.close();
+            this.animate.out(this.el, direction);
             this.clean();
         },
 
-        movein: Transitions.movein,
-        moveout: Transitions.moveout
+        animate: {
+            in: transition.show,
+            out: transition.hide
+        }
+
     });
 
     return Scene;
