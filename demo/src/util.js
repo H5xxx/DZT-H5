@@ -1,3 +1,7 @@
+/*
+ * helper methods
+ */
+
 define(function(require, exports) {
 
     // 'a${x}c', {x:'b'} -> 'abc'

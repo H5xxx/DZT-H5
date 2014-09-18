@@ -1,5 +1,5 @@
 /*
- * 通用的controller基类
+ * proto of scene(controller)
  */
 
 define(function(require, exports) {

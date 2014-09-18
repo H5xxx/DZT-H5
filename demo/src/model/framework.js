@@ -1,3 +1,7 @@
+/*
+ * model of framework
+ */
+
 define(function(require, exports) {
     var url = require('../url');
 

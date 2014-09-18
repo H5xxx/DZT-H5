@@ -1,3 +1,7 @@
+/*
+ * transition/animation collection
+ */
+
 define(function(require, exports) {
 
 	var show = function(ele, direction){

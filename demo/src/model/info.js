@@ -1,3 +1,7 @@
+/*
+ * model of info
+ */
+
 define(function(require, exports) {
     var url = require('../url');
 

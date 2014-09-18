@@ -1,3 +1,7 @@
+/*
+ * proto of model
+ */
+
 define(function(require, exports) {
     var util = require('../util');
 

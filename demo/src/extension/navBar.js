@@ -1,3 +1,7 @@
+/*
+ * navbar as an extension
+ */
+
 define(function(require, exports) {
 
     var navBar = {

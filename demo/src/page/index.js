@@ -1,3 +1,7 @@
+/*
+ * the page
+ */
+
 define(function(require, exports) {
 
     require('../../mock/ajax');

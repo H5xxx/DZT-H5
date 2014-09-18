@@ -1,3 +1,7 @@
+/*
+ * proto of page
+ */
+
 define(function(require, exports) {
 
     var Page = Spine.Stack.sub({

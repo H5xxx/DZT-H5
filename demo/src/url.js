@@ -1,3 +1,7 @@
+/*
+ * url collection
+ */
+
 define(function(require, exports) {
     var config = require('./config');
 
