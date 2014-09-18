@@ -3,7 +3,8 @@ define(function(require, exports) {
     // 'a${x}c', {x:'b'} -> 'abc'
     var format = function(template, vars) {
         return template.replace(/\$\{([^\{\}]*)\}/g, function(_, name) {
-            return vars[name.trim()] || '';
+            var value = vars[name.trim()];
+            return value == null ? '' : value + '';
         });
     };
 
@@ -50,7 +51,7 @@ define(function(require, exports) {
         };
 
         // for debug
-        curried.__foo__ = foo;
+        curried.__beforeCurried__ = foo;
         curried.__args__ = args;
         curried.toString = function(){
             return 'function (' + args + ', ...) { [curried code] }';
@@ -61,7 +62,7 @@ define(function(require, exports) {
     // 自动柯里化
     // function(a, b, c) -> function(a, b, c)
     var currilize = function(foo, expects){
-        expects = expects === undefined ? foo.length : expects;
+        expects = expects === undefined ? (foo.__expects__ || foo.length) : expects;
 
         var currilized = function(){
             return arguments.length >= expects ?
@@ -73,7 +74,7 @@ define(function(require, exports) {
         };
 
         // for debug
-        currilized.__foo__ = foo;
+        currilized.__beforeCurrilized__ = foo;
         currilized.__expects__ = expects;
         currilized.toString = function(){return 'function ([expects ' + expects + ']) { [currilized code] }';};
         return currilized;
