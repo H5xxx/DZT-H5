@@ -130,7 +130,7 @@ define(function(require, exports) {
     };
 
     // 9, 3 -> '009'
-    var toLength = function(source, len){
+    var toLen = function(source, len){
         return (Array.prototype.join.call({length:len + 1}, '0') + source).slice(-len);
     };
 
@@ -142,6 +142,6 @@ define(function(require, exports) {
         λ: λ,
         title: title,
         parseURL: parseURL,
-        toLength: toLength
+        toLen: toLen
     };
 });

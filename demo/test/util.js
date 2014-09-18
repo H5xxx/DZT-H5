@@ -158,5 +158,29 @@ suite('util', function(){
         });
 
     });
+
+    suite('toLen', function(){
+
+        test('should return string with given length', function(){
+            var result = util.toLen('1234', 2);
+
+            assert.equal(2, result.length);
+        });
+
+        test('should use 0 to fill blank', function(){
+            var result = util.toLen('12', 4);
+
+            assert.equal('0012', result);
+        });
+
+        test('should work well with number given', function(){
+            assert.equal(2, util.toLen(1234, 2).length);
+
+            assert.equal('00', util.toLen(0, 2));
+            assert.equal('01', util.toLen(1, 2));
+            assert.equal('0012', util.toLen(12, 4));
+        });
+
+    });
 });
 
