@@ -145,13 +145,19 @@ suite('util', function(){
             assert.equal(3, add(1, 2));
         });
 
+        test('should work well with more args', function(){
+            var addMore = util.λ('a, b, c, d -> a + b + c + d');
+
+            assert.equal(10, addMore(1, 2, 3, 4));
+        });
+
         test('should return function with described usage (call method)', function(){
             var trim = util.λ('s -> s.trim()');
 
             assert.equal('hello', trim('  hello '));
         });
 
-        test('should work well with geven mark', function(){
+        test('should work well with given mark', function(){
             var add = util.λ('a, b => a + b', '=>');
 
             assert.equal(3, add(1, 2));
